@@ -1,2 +1,16 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<h2>Edit your Post</h2>
+
+<div class="form">
+	<%= form_for @post do |f| %>
+		<%= f.label "Stock Ticker"%><br>
+		<%= f.text_field  :ticker, required: true%><br>
+
+		<%= f.label " "%><br>
+		<%= f.text_area  :body,required: true%><br>
+
+		<%= f.submit %>
+		<%end%>
+		<%= form_for @post, method: :delete do |f| %>
+			<%= f.submit "Delete Post?",class: "destroy"%>
+		<%end%>
+</div>
