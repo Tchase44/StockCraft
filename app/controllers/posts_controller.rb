@@ -4,8 +4,8 @@ class PostsController < ApplicationController
   end
 
   def create
-  	@post = Post.new(post_params)
-    # @post = current_user.posts.new(post_params)
+  	# @post = Post.new(post_params)
+   @post = Post.create!(post_params.merge(user: current_user))
   	if @post.save
   		flash[:notice] = "New Post Created"
   		redirect_to root_path
@@ -30,25 +30,35 @@ class PostsController < ApplicationController
 
   def update
   	@post = Post.find(params[:id])
-
-  	if @post.update(post_params)
-  		flash[:notice] = "Edit Successful"
-  		redirect_to post_path(@post)
-  	else
-  		flash[:alert] = "Edit did not save!"
-  		redirect_to post_path(@post)
-  	end
+    authorize @post
+   if @post.user == current_user
+  	   if @post.update(post_params)
+  		  flash[:notice] = "Edit Successful"
+  		  redirect_to post_path(@post)
+  	   else
+  		  flash[:alert] = "Edit did not save!"
+  		  redirect_to post_path(@post)
+  	   end
+   else
+      flash[:alert] = "Sorry you are not allowed to edit this"
+      redirect_to root_path
+   end
   end
 
   def destroy
   	@post = Post.find(params[:id])
-  	if @post.destroy
-  		flash[:notice] = "Post Destroyed"
-  		redirect_to root_path
-  	else
-  		flash[:alert] = "Post did not delete"
-  		redirect_to root_path
-  	end
+    if @post.user == current_user
+  	  if @post.destroy
+  	 	  flash[:notice] = "Post Destroyed"
+  		  redirect_to root_path
+  	  else
+  		  flash[:alert] = "Post did not delete"
+  		  redirect_to root_path
+  	  end
+    else
+      flash[:alert] = "You are not allowed to delete this"
+      redirect_to edit_post_path(@post)
+    end
   end
 
   private

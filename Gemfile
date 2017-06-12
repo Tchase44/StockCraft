@@ -55,11 +55,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'devise'
-
+gem "pundit"
 # gem 'httparty'
 # gem 'omniauth'
-# gem 'omniauth-twitter'    http://localhost:3000/users/auth/twitter/callback
-# gem 'omniauth-google'     http://localhost:3000/users/auth/google/callback
+# gem 'omniauth-twitter'    #http://localhost:3000/users/auth/twitter/callback
+# gem 'omniauth-google-oauth2'     #http://localhost:3000/users/auth/google/callback
 # gem 'omniauth-facebook'   http://localhost:3000/users/auth/facebook/callback
 
 
