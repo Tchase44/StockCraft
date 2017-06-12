@@ -13,3 +13,17 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+	let tickers = $('.tickers').text()
+
+	tickers.forEach
+	$.getJSON( `https://www.enclout.com/api/v1/yahoo_finance/show.json?auth_token=&text=`, function( data ) {
+
+	datas = data
+})
+
+	tickers.for (let i = tickers.length - 1; i >= 0; i--) {
+		tickers[i]
+	}
+})

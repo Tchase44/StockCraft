@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!,execpt: [:index, :show]
+
+  # after_action 
+  # after_action 
   def index
   	@posts = Post.all.order(:created_at).reverse
   end

@@ -55,7 +55,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'devise'
-gem "pundit"
+# gem "pundit"
 # gem 'httparty'
 # gem 'omniauth'
 # gem 'omniauth-twitter'    #http://localhost:3000/users/auth/twitter/callback
