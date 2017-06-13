@@ -9,11 +9,11 @@ Post.destroy_all
 Comment.destroy_all
 # Stock.destroy_all
 
-post1 = Post.create(ticker: "GOOG" , body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae euismod dui. Donec porta scelerisque interdum. Donec pulvinar gravida enim. Aliquam at vestibulum risus. Nullam placerat sem nec odio tristique maximus. Sed ut eleifend neque. In sit amet ultrices lacus.")
-post2 = Post.create(ticker: "AAPL" , body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae euismod dui. Donec porta scelerisque interdum. Donec pulvinar gravida enim. Aliquam at vestibulum risus. Nullam placerat sem nec odio tristique maximus. Sed ut eleifend neque. In sit amet ultrices lacus.")
+post1 = Post.create(ticker: "AMZN" , body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae euismod dui. Donec porta scelerisque interdum. Donec pulvinar gravida enim. Aliquam at vestibulum risus. Nullam placerat sem nec odio tristique maximus. Sed ut eleifend neque. In sit amet ultrices lacus.")
+post2 = Post.create(ticker: "F" , body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae euismod dui. Donec porta scelerisque interdum. Donec pulvinar gravida enim. Aliquam at vestibulum risus. Nullam placerat sem nec odio tristique maximus. Sed ut eleifend neque. In sit amet ultrices lacus.")
 post3 = Post.create(ticker: "NVDA" , body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae euismod dui. Donec porta scelerisque interdum. Donec pulvinar gravida enim. Aliquam at vestibulum risus. Nullam placerat sem nec odio tristique maximus. Sed ut eleifend neque. In sit amet ultrices lacus.")
 post4 = Post.create(ticker: "ATVI" , body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae euismod dui. Donec porta scelerisque interdum. Donec pulvinar gravida enim. Aliquam at vestibulum risus. Nullam placerat sem nec odio tristique maximus. Sed ut eleifend neque. In sit amet ultrices lacus.")
-
+post5 = Post.create(ticker: "AOBC", body: "word word wordaf.jasflkjsfblword word word word")
 
 comm1 = post1.comments.create(content: "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and give ")
 comm2 = post1.comments.create(content: "But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences")
@@ -30,11 +30,11 @@ comm34 = post4.comments.create(content: "No one rejects, dislikes, or avoids ple
 
 
 
-stock1 = Stock.create(symbol:"F",price:11.33)
-stock2 = Stock.create(symbol:"NVDA",price:140.54)
-stock3 = Stock.create(symbol:"ATVI",price:53.12)
-stock4 = Stock.create(symbol:"AMZN",price:965.23)
-stock5 = Stock.create(symbol:"AOBC",price:23.44)
+stock1 = Stock.create(ticker:"F",price:11.33)
+stock2 = Stock.create(ticker:"NVDA",price:140.54)
+stock3 = Stock.create(ticker:"ATVI",price:53.12)
+stock4 = Stock.create(ticker:"AMZN",price:965.23)
+stock5 = Stock.create(ticker:"AOBC",price:23.44)
 
 
 

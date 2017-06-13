@@ -1,4 +1,4 @@
-class watchlist < ApplicationRecord
+class Watchlist < ApplicationRecord
 
 	belongs_to :stock
 	belongs_to :user

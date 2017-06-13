@@ -1,7 +1,9 @@
 
 
 <div class="post">
-	<h3><%= @post.ticker %></h3>
+	<h3>
+	<a href="/stocks/<%= @stock.id%>"><%= Stock.find_by(ticker: "#{@post.ticker}").ticker %>
+	<span><%=link_to "[+]",add_to_watchlist_stock_path(@stock),method: :post%></span></h3>
 	<p><%= @post.body %></p>
 </div>
 <% @comments.each do |comm| %>

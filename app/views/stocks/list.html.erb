@@ -1,0 +1,7 @@
+<h1>My Watchist</h1>
+<div class="watchist">
+<% @my_stocks.each do |s|%>
+	<p><%= link_to Stock.find(s).ticker, stock_path(s)%> | <%=Stock.find(s).price%></p>
+	<%= link_to "Remove", remove_from_watchlist_stock_path(s), method: :delete %>
+<%end%>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170613005411) do
+ActiveRecord::Schema.define(version: 20170613132333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20170613005411) do
   end
 
   create_table "stocks", force: :cascade do |t|
-    t.string "symbol"
+    t.string "ticker"
     t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -58,6 +58,15 @@ ActiveRecord::Schema.define(version: 20170613005411) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "watchlists", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "stock_id"
+    t.index ["stock_id"], name: "index_watchlists_on_stock_id"
+    t.index ["user_id"], name: "index_watchlists_on_user_id"
+  end
+
   add_foreign_key "comments", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "watchlists", "stocks"
+  add_foreign_key "watchlists", "users"
 end

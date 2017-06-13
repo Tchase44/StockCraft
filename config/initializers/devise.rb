@@ -291,5 +291,5 @@ Devise.setup do |config|
 
   # #Add your ID and secret here
   # #ID first, secret second
-  # config.omniauth :google, "1086053932014-aevalhkp0bu0b3c2mgv12mlgasqegsrh.apps.googleusercontent.com", "d80obtPo4ddL-XUmPn8pIoGm"
+  # config.omniauth 
 end

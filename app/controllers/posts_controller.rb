@@ -5,17 +5,34 @@ class PostsController < ApplicationController
   # after_action 
   def index
   	@posts = Post.all.order(:created_at).reverse
+    @stocks = Stock.all
   end
 
   def create
-  	# @post = Post.new(post_params)
-   @post = Post.create!(post_params.merge(user: current_user))
-  	if @post.save
-  		flash[:notice] = "New Post Created"
-  		redirect_to root_path
-  	else
-  		flash[:alert] = "Error Post did not save"
-  		redirect_to root_path
+  	# 
+    @post = Post.create!(post_params.merge(user: current_user))
+    @post.ticker.upcase!
+
+    @stocks = Stock.all
+    @new_stock = Stock.new(ticker: @post.ticker, price: 0.00)
+
+    if @stocks.any? {|h| h[:ticker] == @post.ticker}
+      if @post.save
+        flash[:notice] = "New Post Created"
+        redirect_to root_path
+      else
+        flash[:alert] = "Error Post did not save"
+        redirect_to root_path
+      end
+    else
+      @new_stock.save
+      if @post.save
+        flash[:notice] = "New Post Created"
+        redirect_to root_path
+      else
+        flash[:alert] = "Error Post did not save"
+        redirect_to root_path
+      end
   	end
   end
 
@@ -29,6 +46,7 @@ class PostsController < ApplicationController
 
   def show
   	@post = Post.find(params[:id])
+    @stock = Stock.find_by(ticker: "#{@post.ticker}")
   	@comments = @post.comments.all
   end
 
