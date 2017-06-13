@@ -1,8 +1,9 @@
 <div class="feed">
 <% @posts.each do |post|%>
 	<a href="/posts/<%=post.id%>"><div class="post">
-		<h3 class="tickers"><%= post.ticker %></h3>
+		<h3 class="tickers"><%= post.ticker %></h3><span class="price">$$$</span>
 		<p><%= post.body %></p>
+		<span>[+]</span>
 	</div></a>
 <%end%>
 </div>

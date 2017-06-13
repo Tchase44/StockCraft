@@ -14,16 +14,18 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function() {
-	let tickers = $('.tickers').text()
+// $(document).ready(function() {
+// 	let tickers = $('.tickers')
+// 	let price = $('.price')
 
-	tickers.forEach
-	$.getJSON( `https://www.enclout.com/api/v1/yahoo_finance/show.json?auth_token=&text=`, function( data ) {
+// 	$.each( tickers, function( key, value ) {
+// 		let symbol = value.innerText
+//     	$.getJSON( `https://www.enclout.com/api/v1/yahoo_finance/show.json?auth_token=&text=${symbol}`, function( data ) {
+// 			price[key].text(data[0].open)
+// 		});
+// 	})
 
-	datas = data
-})
+// })
+// https://api.intrinio.com
 
-	tickers.for (let i = tickers.length - 1; i >= 0; i--) {
-		tickers[i]
-	}
-})
+// request_url = "https://api.intrinio.com/companies?ticker=AAPL"
