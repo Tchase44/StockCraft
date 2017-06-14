@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-
-  devise_for :users #, :controllers => { :omniauth_callbacks => "callbacks" }
 	root to: 'posts#index'
+
+  	devise_for :users 
+	
 	resources :posts do
 		resources :comments, only: [:create, :new, :edit, :update, :destroy]
 		
 	end
 
-	resources :stocks, only: [:show, :list] do
+	resources :stocks, only: [:show, :list, :new, :create] do
     	member do
     	  post 'add_to_watchlist'
     	  delete 'remove_from_watchlist'

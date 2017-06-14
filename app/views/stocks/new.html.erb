@@ -1,0 +1,13 @@
+<h2>Add a Stock</h2>
+
+<div class="form">
+	<%= form_for @stock do |f| %>
+		<%= f.label "Ticker Symbol"%>
+		<%= f.text_field :ticker%>
+
+		<%= f.label "Price"%>
+		<%= f.number_field :price, step: :any%>
+		
+		<%= f.submit %>
+	<%end%>
+</div>

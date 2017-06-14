@@ -1,15 +1,24 @@
 <div class="feed">
+
 <% @posts.each do |post|%>
-	<div class="post">
-	<h4>
-	<a href='/stocks/<%= Stock.find_by(ticker: "#{post.ticker}").id %>'>
-			<%= post.ticker %>
-	</a>
-	</h4>
+<div class="post">
+
+	<div class="ticker">
+		<h4>
+			<a href='/stocks/<%= Stock.find_by(ticker: "#{post.ticker}").id %>'>
+				<%= post.ticker %>
+			</a>
+		</h4>
 		<span class="price">
-			<%= Stock.find_by(ticker: "#{post.ticker}").price %>
+				<%= Stock.find_by(ticker: "#{post.ticker}").price %>
 		</span>
-		<a href="/posts/<%=post.id%>"><p><%= post.body %></p></a>
 	</div>
+	<div class="stuff">
+			<a href="/posts/<%=post.id%>">
+				
+					<p><%= post.body %></p>
+			</a>
+	</div>
+</div>
 <%end%>
 </div>

@@ -8,7 +8,46 @@ class StocksController < ApplicationController
 		@my_list = Watchlist.where(user: current_user)
 		@my_stocks = []
 		@my_list.each do |x|
+
 			@my_stocks.push(x.stock_id)
+
+		end
+	end
+
+	def new
+		@stock = Stock.new()
+	end
+
+	def create
+		#stuff to search through
+		@all_stocks = Stock.all
+		@my_list = Watchlist.where(user: current_user)
+		#new Stock 
+		@stock = Stock.new(stock_params)
+		@stock.ticker.upcase!
+		#exsisting Stock
+		@db_stock = Stock.find_by(ticker: @stock.ticker)
+		# if in database
+		if @all_stocks.any? {|h| h[:ticker] == @stock.ticker}
+			#if in watchlist
+			if @my_list.any? {|h| h[:stock_id] == @db_stock.id}
+				#in both
+				flash[:notice] = "That stock is already in your watchlist"
+				redirect_to watchlist_path
+			else
+				# in database, not in watchlist
+				@db_stock.ticker.upcase!
+				@db_stock.update(stock_params)
+				@db_stock.watchlists.create!(user: current_user)
+				flash[:notice] = "#{@db_stock.ticker} added to list"
+				redirect_to watchlist_path
+			end
+		else
+			#not in either
+			@stock.save
+			@stock.watchlists.create!(user: current_user)
+			flash[:notice] = "#{@stock.ticker} added to list"
+			redirect_to watchlist_path
 		end
 	end
 
@@ -38,5 +77,10 @@ class StocksController < ApplicationController
    	end
 
   	end
+
+  	private
+  		def stock_params
+  			params.require(:stock).permit(:ticker,:price)
+  		end
 
 end

@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   def create
   	# 
-    @post = Post.create!(post_params.merge(user: current_user))
+    @post = Post.new(post_params.merge(user: current_user))
     @post.ticker.upcase!
 
     @stocks = Stock.all
@@ -47,12 +47,12 @@ class PostsController < ApplicationController
   def show
   	@post = Post.find(params[:id])
     @stock = Stock.find_by(ticker: "#{@post.ticker}")
-  	@comments = @post.comments.all
+  	@comments = @post.comments.all.order(:updated_at).reverse
   end
 
   def update
   	@post = Post.find(params[:id])
-    authorize @post
+    # authorize @post
    if @post.user == current_user
   	   if @post.update(post_params)
   		  flash[:notice] = "Edit Successful"

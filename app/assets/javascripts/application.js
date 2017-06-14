@@ -14,20 +14,3 @@
 //= require turbolinks
 //= require_tree .
 
-// $(document).ready(function() {
-// 	let tickers = $('.tickers')
-// 	let price = $('.price')
-
-// 	$.each( tickers, function( key, value ) {
-// 		let symbol = value.innerText
-//     	$.getJSON( `https://www.enclout.com/api/v1/yahoo_finance/show.json?auth_token=8EtCTsrqZekzZvefp33a&text=${symbol}`, function( data ) {
-// 			price[key].text(data[0].open)
-// 		});
-// 	})
-
-// })
-// https://api.intrinio.com
-
-// username = "58c5da5c21c5403ddd1f4ba2cb9113b2"
-// password = "a15a16683a83effb187349e3a2c406fd"
-// request_url = "https://api.intrinio.com/companies?ticker=AAPL"
