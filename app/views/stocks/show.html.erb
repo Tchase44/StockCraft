@@ -1,2 +1,9 @@
-<h3><%= @stock.ticker %><span><%=link_to "[+]",add_to_watchlist_stock_path(@stock),method: :post%></span></h3>
-<p><%= @stock.price %></p>
+<div class="stockShow">
+	<h4>
+		<%= @stock.ticker %>
+		<span class="add"><%=link_to " ★",add_to_watchlist_stock_path(@stock),method: :post%></span>
+	</h4>
+	<p><%= @stock.price %></p>
+	<img src="" alt="Awesome Stock Chart Would go here">
+	<p>Additional companay data Would go here</p>
+</div>

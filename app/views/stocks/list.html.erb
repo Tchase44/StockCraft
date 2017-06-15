@@ -2,17 +2,17 @@
 	<div class="watchHead">
 		<h2>My Watchist</h2>
 		<h3><%= link_to "Add a stock to the watchlist", new_stock_path %></h3>
-</div>
-
-
-
-
-<div class="watchist">
-<% @my_stocks.each do |s|%>
-	<div class="stockBox">
-	<p><%= link_to Stock.find(s).ticker, stock_path(s)%> &nbsp;&nbsp; <%=Stock.find(s).price%></p>
-	<%= link_to "Remove", remove_from_watchlist_stock_path(s), method: :delete %>
 	</div>
+
+
+
+
+	<div class="watchist">
+<% @my_stocks.each do |s|%>
+		<div class="stockBox">
+			<p><%= link_to Stock.find(s).ticker, stock_path(s)%> &nbsp;&nbsp; <%=Stock.find(s).price%></p>
+			<%= link_to "Remove", remove_from_watchlist_stock_path(s), method: :delete %>
+		</div>
 <%end%>
 	</div>
 </div>

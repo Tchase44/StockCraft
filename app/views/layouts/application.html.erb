@@ -16,8 +16,10 @@
   </head>
 
   <body>
+    <header>
   	<h1><%=link_to "StockCraft", root_path %></h1>
-    <div class="nav">
+    </header>
+    <nav>
       <div class="logLinks">
           <%if !current_user%>
             <%= link_to "Sign In", new_user_session_path%>
@@ -31,7 +33,7 @@
        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   	   <%= link_to "My Watchlist", watchlist_path %>
       </div>
-    </div>
+    </nav>
     <%flash.each do |type, messege|%>
       <p class="<%=type%>"><%=messege%></p>
     <%end%>

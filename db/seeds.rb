@@ -9,11 +9,11 @@ Post.destroy_all
 Comment.destroy_all
 Stock.destroy_all
 
-post1 = Post.create(ticker: "AMZN" , body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae euismod dui. Donec porta scelerisque interdum. Donec pulvinar gravida enim. Aliquam at vestibulum risus. Nullam placerat sem nec odio tristique maximus. Sed ut eleifend neque. In sit amet ultrices lacus.")
-post2 = Post.create(ticker: "F" , body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Donec pulvinar gravida enim. Aliquam at vestibulum risus. Nullam placerat sem nec odio tristique maximus. Sed ut eleifend neque. In sit amet ultrices lacus.")
-post3 = Post.create(ticker: "NVDA" , body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae euismod dui. Donec porta scelerisque interdum. Donec pulvinar gravida enim. Aliquam at vestibulum risus. Nullam placerat sem nec odio tristique maximus. Sed ut eleifend neque. In sit amet ultrices lacus.")
-post4 = Post.create(ticker: "ATVI" , body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at vestibulum risus. Nullam placerat sem nec odio tristique maximus. Sed ut eleifend neque. In sit amet ultrices lacus.")
-post5 = Post.create(ticker: "AOBC", body: "word word wordaf.jasflkjsfblword word word word")
+post1 = Post.create(ticker: "AMZN" , body: "A great company with great ideas. Staying long on this after the recent dip. if it goes lower im buying more")
+post2 = Post.create(ticker: "F" , body: "They make the best selling truck. They have the Worst perfoming auot maker stock. I dont know if this is a value trap or a good buying opprotunity? any suggestions?")
+post3 = Post.create(ticker: "NVDA" , body: "The hottest stock in the market! I would buy this thing on any dip! and hold it forever. Driverless car makers are in love with Nvdia and i love there gaming GPU's")
+post4 = Post.create(ticker: "ATVI" , body: "I'm buying because i love there games(Starcraft for life!) but im gonna hold because eSports are growing business")
+post5 = Post.create(ticker: "AOBC", body: "American Outdoor Brands Company is more and just Smith and Wesson")
 
 comm1 = post1.comments.create(content: "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and give ")
 comm2 = post1.comments.create(content: "But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences")
@@ -39,7 +39,7 @@ stock6 = Stock.create(ticker: "STAG",price: 24.21)
 stock8 = Stock.create(ticker: "MGM", price: 32.50)
 stock9 = Stock.create(ticker: "CPT", price: 86.66)
 stock0 = Stock.create(ticker: "AMD", price: 11.22)
-
+stock12 = Stock.create(ticker:"FSLR",price: 32.11)
 
 
 
