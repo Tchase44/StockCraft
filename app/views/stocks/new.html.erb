@@ -2,11 +2,11 @@
 
 <div class="form">
 	<%= form_for @stock do |f| %>
-		<%= f.label "Ticker Symbol"%>
-		<%= f.text_field :ticker%>
+		<%= f.label "Ticker Symbol"%><br>
+		<%= f.text_field :ticker%><br>
 
-		<%= f.label "Price"%>
-		<%= f.number_field :price, step: :any%>
+		<%= f.label "Price"%><br>
+		<%= f.number_field :price, step: :any%><br>
 		
 		<%= f.submit %>
 	<%end%>
